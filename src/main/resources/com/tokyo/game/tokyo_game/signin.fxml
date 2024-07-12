@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.tokyo.game.tokyo_game.gui.signin.SignUpController" stylesheets="@signin.css">
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <children>
+
+                <Text fx:id="signUpMessage" strokeType="OUTSIDE"  text="Create your account" />
+                <TextField fx:id="usernameField"  promptText="Username" />
+                <PasswordField fx:id="passwordField"  promptText="Password" />
+                <PasswordField fx:id="confirmPasswordField"  promptText="Confirm Password" />
+                <TextField fx:id="nickName"  promptText="Nickname" />
+                <TextField fx:id="email"  promptText="email@example.com" /><!-- In your FXML file (e.g., sample.fxml) -->
+                <Label fx:id="dynamicTextLabel" text="" wrapText="true"/>
+                <TextField fx:id="answerSecurity"  promptText="Secuity Question Answer" />
+                <Button fx:id="signIn"  mnemonicParsing="false" onAction="#handleSignUpButtonAction" text="Sign Up" />
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

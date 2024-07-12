@@ -1,0 +1,16 @@
+.root {
+    -fx-background-color: #2b2b2b;
+    -fx-font-family: 'Cinzel', serif;
+}
+
+.button {
+    -fx-background-color: #806517;
+    -fx-text-fill: #faf0e6;
+    -fx-background-radius: 5;
+    -fx-font-size: 16px;
+    -fx-padding: 10 20;
+}
+
+.button:hover {
+    -fx-background-color: #9c7c38;
+}

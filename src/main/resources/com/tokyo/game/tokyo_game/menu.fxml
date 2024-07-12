@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Pos?>
+
+<?import java.net.URL?>
+<VBox xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tokyo.game.tokyo_game.gui.menu.MenuController" alignment="CENTER" spacing="10">
+    <stylesheets>
+        <URL value="@menu.css"/>
+    </stylesheets>
+    <Button text="Start Game" fx:id="startGameBtn" onAction="#handleStartGame"/>
+    <Button text="See Cards" fx:id="seeCardsBtn" onAction="#handleSeeCards"/>
+    <Button text="Game History" fx:id="gameHistoryBtn" onAction="#handleGameHistory"/>
+    <Button text="Shop" fx:id="shopBtn" onAction="#handleShop"/>
+    <Button text="Profile" fx:id="profileBtn" onAction="#handleProfile"/>
+    <Button text="Logout" fx:id="logoutBtn" onAction="#handleLogout"/>
+</VBox>

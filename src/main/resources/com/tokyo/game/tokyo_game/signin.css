@@ -1,0 +1,29 @@
+.root {
+    -fx-background-color: #2b2b2b; /* Dark, stone-like color */
+    -fx-font-family: 'Cinzel', serif; /* Change to a more medieval-looking font */
+}
+
+.text {
+    -fx-fill: #c9a678; /* Golden text, suggesting a royal manuscript */
+    -fx-font-size: 18px;
+}
+
+.text-field, .password-field {
+    -fx-background-color: #4a3c30; /* Dark brown, reminiscent of old leather */
+    -fx-text-fill: #fffacd; /* Parchment color for text */
+    -fx-prompt-text-fill: #9c8a70; /* Aged, faded text color */
+    -fx-border-color: #d2b48c; /* Aged parchment edge color */
+    -fx-border-radius: 5;
+    -fx-max-width: 300px;
+    -fx-background-radius: 5;
+}
+
+.button {
+    -fx-background-color: #806517; /* Muted gold for buttons, less bright than pure green */
+    -fx-text-fill: #faf0e6; /* Off-white, linen-like color for text */
+    -fx-background-radius: 5;
+}
+
+.button:hover {
+    -fx-background-color: #9c7c38; /* Lighter shade of gold on hover for a subtle interactive effect */
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox xmlns="http://javafx.com/javafx/15" spacing="20" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@signin.css" fx:controller="com.tokyo.game.tokyo_game.gui.profile.GamerController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+    <children>
+        <VBox spacing="20">
+            <children>
+                <Label text="Username:" />
+                <TextField fx:id="usernameField" />
+
+                <Label text="Nickname:" />
+                <TextField fx:id="nicknameField" />
+
+                <Label text="Email:" />
+                <TextField fx:id="emailField" />
+
+                <Label text="Level:" />
+                <TextField fx:id="levelField" />
+
+                <Label text="Hit Points (HP):" />
+                <TextField fx:id="hpField" />
+
+                <Label text="Experience (XP):" />
+                <TextField fx:id="xpField" />
+
+                <Label text="Coins:" />
+                <TextField fx:id="coinAmountField" />
+
+                <Button text="Update Profile" onAction="#handleUpdateProfile"/>
+                <Button text="Load Profile" onAction="#handleLoadProfile"/>
+
+
+            </children>
+        </VBox>
+        <Label text="Cards:" />
+        <TilePane fx:id="cardsPane" mouseTransparent="true" prefColumns="8" hgap="10" vgap="10">
+        </TilePane>
+
+    </children>
+</HBox>
