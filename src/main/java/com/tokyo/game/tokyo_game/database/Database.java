@@ -50,7 +50,6 @@ public class Database {
         } else if (instance.getConnection().isClosed()) {
             instance = new Database();
         }
-
         return instance;
     }
 }

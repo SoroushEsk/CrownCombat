@@ -1,7 +1,10 @@
 package com.tokyo.game.tokyo_game;
 
+import com.tokyo.game.tokyo_game.database.DataBaseUser;
+import com.tokyo.game.tokyo_game.database.Database;
 import com.tokyo.game.tokyo_game.resource.Constants;
 import com.tokyo.game.tokyo_game.resource.SharedResource;
+import com.tokyo.game.tokyo_game.security.password.Password;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -60,6 +63,15 @@ public class Main extends Application {
 //    }
     public static void main(String[] args) throws   SQLException {
 
+        Thread t = new Thread(()->{
+            try {
+                SharedResource.getInstance().user.createTable();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        t.start();
+        System.out.println(SharedResource.getInstance().user.userLogin("soroush", "abcd"));
         launch();
 
 //        Captcha captcha = new Captcha();

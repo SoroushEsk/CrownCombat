@@ -7,8 +7,12 @@ import java.util.Base64;
 public class Password {
     private String encryptedPassword;
 
-    public Password(String plainTextPassword) {
+    public Password(String plainTextPassword, boolean isQery) {
+        if(!isQery){
             this.encryptedPassword = encrypt(plainTextPassword);
+        }else {
+            this.encryptedPassword = encryptedPassword;
+        }
 
     }
 

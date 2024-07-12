@@ -1,5 +1,6 @@
 package com.tokyo.game.tokyo_game.resource;
 
+import com.tokyo.game.tokyo_game.database.DataBaseUser;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -14,6 +15,9 @@ public class SharedResource {
     private final Scanner input = new Scanner(System.in);
     private final Random  random = new Random();
     public  MediaPlayer mp;
+
+    public DataBaseUser user = new DataBaseUser();
+
 
     private SharedResource() {
     }
