@@ -55,7 +55,7 @@ public class Main extends Application {
         primaryStage.getIcons().add(icon);
         Media media = new Media(getClass().getResource(Constants.getInstance().openCreditPath).toExternalForm());
         SharedResource.getInstance().mp = new MediaPlayer(media);
-//        SharedResource.getInstance().mp.play();
+        SharedResource.getInstance().mp.play();
 
         primaryStage.setTitle("Crown Combat");
         primaryStage.setScene(new Scene(root, 1200, 800));
