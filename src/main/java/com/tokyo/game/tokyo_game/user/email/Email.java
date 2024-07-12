@@ -11,4 +11,9 @@ public class Email {
     private String organization;
     private String domain;
 
+    @Override
+    public String toString(){
+        return username+"@"+organization+"."+domain;
+    }
+
 }

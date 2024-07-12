@@ -20,6 +20,7 @@ public class LoginController {
     @FXML
     private TextField usernameField;
 
+    private int counter = 3;
     @FXML
     private PasswordField passwordField;
 
@@ -44,7 +45,7 @@ public class LoginController {
     protected void handleLoginButtonAction() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
-
+        if ( counter == 0 ) loginMessage.setText("No more tries");
         if (SharedResource.getInstance().user.userLogin(username, password)){
             //        Parent root = FXMLLoader.load(getClass().getResource("/com/tokyo/game/tokyo_game/profile.fxml"));
             Parent root = FXMLLoader.load(getClass().getResource("/com/tokyo/game/tokyo_game/menu.fxml"));
@@ -54,7 +55,8 @@ public class LoginController {
             Scene scene = new Scene(root , Constants.getInstance().Windows_Width, Constants.getInstance().Windows_Height);
             stage.setScene(scene);
         }else{
-            loginMessage.setText("Username or Password Invalid");
+            counter--;
+            loginMessage.setText("Username or Password Invalid, Remaining : " + counter );
         }
     }
 

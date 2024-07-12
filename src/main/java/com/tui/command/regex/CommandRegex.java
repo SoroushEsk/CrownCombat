@@ -10,7 +10,7 @@ public class CommandRegex {
     public final String LoginUser              =       "^user\\s+login\\s+-u\\s+(.+)\\s+-p\\s+(.+)\\s+$";
     public final String logout                 =       "^log\\s+out$";
     public final String forgetpassword         =       "^Forgot\\s+my\\s+password\\s+-u\\s+(.+)\\s+$";
-    public final String showInfo               =       "^Show\\s+information$";
+    public final String showInfo                =       "^Show\\s+information$";
     public final String changeUsername          =       "^Profile\\s+change\\s+-u\\s+(.+)\\s+$";
     public final String changeNickname          =       "^Profile\\s+change\\s+-n\\s+(.+)\\s+$";
     public final String changeEmail             =       "^Profile\\s+change\\s+-e\\s+(.+)\\s+$";

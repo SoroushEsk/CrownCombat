@@ -20,6 +20,10 @@ public class Gamer {
         this.email = email;
         this.recoveryQuestion = recoveryQuestion;
         this.paths = new ArrayList<>();
+        this.level = 1;
+        this.coinAmount = 100;
+        this.HP = 1;
+        this.XP = 0;
     }
 
     private String nickname;

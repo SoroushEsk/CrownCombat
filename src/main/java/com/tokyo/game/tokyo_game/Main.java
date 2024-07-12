@@ -10,6 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 //
@@ -18,8 +20,12 @@ import java.sql.*;
 
 import javafx.scene.media.Media;
 import java.util.Scanner;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class Main extends Application {
+
+    private final BlockingQueue<KeyCode> queue = new LinkedBlockingQueue<>();
     private static Scanner input = new Scanner(System.in);
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -56,12 +62,52 @@ public class Main extends Application {
         Media media = new Media(getClass().getResource(Constants.getInstance().openCreditPath).toExternalForm());
         SharedResource.getInstance().mp = new MediaPlayer(media);
         SharedResource.getInstance().mp.play();
+        Scene scene = new Scene(root, 1200, 800);
 
+        primaryStage.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            try {
+                queue.put(event.getCode());  // Handle key inputs globally
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();  // Handle thread interruption
+            }
+        });
+
+        Thread actionThread = new Thread(() -> {
+            while (!Thread.interrupted()) {
+
+                double volume;
+                try {
+                    KeyCode key = queue.take();
+                    if (key == KeyCode.F1) {
+
+                        SharedResource.getInstance().mp.setVolume(0);
+                    } else if ( key == KeyCode.F2 ){
+
+                        SharedResource.getInstance().mp.setVolume(1);
+                    } else if ( key == KeyCode.F3){
+                        volume = SharedResource.getInstance().mp.getVolume() + 0.1;
+                        SharedResource.getInstance().mp.setVolume(Math.max(0, Math.min(1, volume)));
+
+                    } else if ( key == KeyCode.F4 ){
+
+                        volume = SharedResource.getInstance().mp.getVolume() - 0.1;
+                        SharedResource.getInstance().mp.setVolume(Math.max(0, Math.min(1, volume)));
+
+                    }
+
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        });
+        actionThread.start();
         primaryStage.setTitle("Crown Combat");
-        primaryStage.setScene(new Scene(root, 1200, 800));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
-//        this.paths.add(getClass().getResource("Cards/cc (4).jpg").toExternalForm());
+
+
+    //        this.paths.add(getClass().getResource("Cards/cc (4).jpg").toExternalForm());
 //        this.paths.add(getClass().getResource("Cards/cc (2).jpg").toExternalForm());
 //        this.paths.add(getClass().getResource("Cards/cc (3).jpg").toExternalForm());
 //        this.paths.add(getClass().getResource("Cards/cc (4).jpg").toExternalForm());
@@ -84,6 +130,7 @@ public class Main extends Application {
         t.start();
         System.out.println(SharedResource.getInstance().user.userLogin("soroush", "abcd"));
         launch();
+
 
 //        Captcha captcha = new Captcha();
 //        captcha.printCaptcha();

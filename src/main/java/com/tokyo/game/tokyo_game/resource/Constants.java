@@ -22,7 +22,7 @@ public class Constants {
     public static Constants getInstance(){
         if ( instance == null ){
             instance = new Constants();
-            instance.c_gamer = new Gamer(1, "Soroush",new Password("fuckyou", false), "nickname", new Email("s", "gmal", "com"), new PasswordRecovery());
+            instance.c_gamer = new Gamer(1, "barsam",new Password("fuckyou", false), "nickname", new Email("s", "gmal", "com"), new PasswordRecovery());
         }
         return instance;
 

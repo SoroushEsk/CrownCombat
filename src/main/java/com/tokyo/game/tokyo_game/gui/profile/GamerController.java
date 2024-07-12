@@ -2,6 +2,7 @@ package com.tokyo.game.tokyo_game.gui.profile;
 
 import com.tokyo.game.tokyo_game.resource.Constants;
 import com.tokyo.game.tokyo_game.user.Gamer;
+import com.tokyo.game.tokyo_game.user.email.Email;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,7 +25,6 @@ public class GamerController {
     private TilePane cardsPane;
 
     private Gamer gamer;
-
     @FXML
     private HBox hBox;
     @FXML
@@ -32,6 +32,13 @@ public class GamerController {
         // Update Gamer properties based on text fields
         gamer.setUsername(usernameField.getText());
         gamer.setNickname(nicknameField.getText());
+        String[] part = emailField.getText().split("@");
+        String[] part2 = part[1].split(".");
+        gamer.setEmail(new Email(part[0], part2[0], part2[1]));
+        gamer.setLevel(Long.parseLong(levelField.getText()));
+        gamer.setHP(Long.parseLong(hpField.getText()));
+        gamer.setXP(Long.parseLong(xpField.getText()));
+        gamer.setCoinAmount(Long.parseLong(coinAmountField.getText()));
         // More properties...
     }
 
@@ -40,6 +47,12 @@ public class GamerController {
         // Load Gamer data into text fields
         usernameField.setText(gamer.getUsername());
         nicknameField.setText(gamer.getNickname());
+        emailField.setText(gamer.getEmail().toString());
+        levelField.setText(gamer.getLevel()+"");
+        hpField.setText(gamer.getHP()+"");
+        xpField.setText(gamer.getXP()+"'");
+        coinAmountField.setText(gamer.getCoinAmount()+"");
+
         // More properties...
 
         // Load cards into the TilePane
